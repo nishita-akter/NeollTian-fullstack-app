@@ -1,70 +1,171 @@
-# Getting Started with Create React App
+# 🤖 NeoIITian – AI Software Engineer Chatbot
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![NeoIITian Banner](neo_iitian/assets/logo.png)
+_Your Personal AI Software Engineer Assistant_
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 About NeoIITian
 
-### `npm start`
+**NeoIITian** is a **smart, professional chatbot** designed to think and respond like a **top-tier Software Engineer**.
+It can answer **any Computer Science question** — from **programming, AI, ML, OS, DBMS, networks, to algorithms** — in a **structured, motivating, and clear way**.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Built with **[LangChain](https://www.langchain.com/)** + **[Groq LLM API](https://www.groq.com/)**
+Developed with **Python FastAPI backend** and **React frontend** for modern web experience.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🧩 Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 💡 **Professional AI Software Engineer personality**
+- 🧠 **Persistent chat memory**
+- 💾 **Frontend React interface with elegant chat UI**
+- ⚡ **Fast, modular, and beginner-friendly codebase**
+- 🔗 **Supports Groq LLM API**
+- 🧰 **Simple file structure for easy customization**
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📁 Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+NeoIITian/
+├── backend/
+│   ├── main.py            # FastAPI app
+│   ├── neo_iitian/
+│   │   ├── chatbot.py     # Core chat logic (LLM response generator)
+│   │   ├── llm_connector.py   # Groq connector
+│   │   ├── prompt_templates.py# Chatbot persona prompt
+│   │   ├── utils.py       # Helper functions
+│   │   ├── config.py      # Environment variables
+│   │   └── assets/logo.png
+│   ├── requirements.txt   # Python dependencies
+│   └── .env.example       # Example env variables
+├── frontend/
+│   ├── package.json       # React project dependencies
+│   ├── public/
+│   └── src/
+├── data/
+│   └── sample_context.txt # Optional contextual knowledge
+└── README.md
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## ⚙️ Setup Instructions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1️⃣ Clone Project
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/yourusername/NeoIITian.git
+cd NeoIITian
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2️⃣ Backend Setup (FastAPI + LLM)
 
-## Learn More
+#### a) Create Conda Environment
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+conda create -n neo-backend python=3.10 -y
+conda activate neo-backend
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### b) Install Python Dependencies
 
-### Code Splitting
+```bash
+cd backend
+pip install -r requirements.txt
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+> ⚠️ If you get pip launcher errors, ensure your conda environment is active and Python is from conda.
 
-### Analyzing the Bundle Size
+#### c) Setup Environment Variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Copy `.env.example` to `.env` and update:
 
-### Making a Progressive Web App
+```
+GROQ_API_KEY=your_groq_api_key_here
+LLM_PROVIDER=groq
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+### 3️⃣ Frontend Setup (React)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+cd ../frontend
+npm install
+```
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 💬 Running NeoIITian Locally
 
-### `npm run build` fails to minify
+### Backend (FastAPI)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+cd backend
+conda activate neo-backend
+uvicorn main:app --reload --port 8000
+```
+
+- Runs FastAPI server at [http://127.0.0.1:8000](http://127.0.0.1:8000)
+- Provides `/chat` endpoint for frontend requests
+
+### Frontend (React)
+
+```bash
+cd frontend
+npm start
+```
+
+- Runs React app at [http://localhost:3000](http://localhost:3000)
+- Connects automatically to FastAPI backend
+
+---
+
+## 🧠 Testing Backend Integration
+
+1. Ask a question in the React frontend.
+2. If you get a meaningful response (e.g., “tell me about CSE”), it confirms **frontend ↔ FastAPI ↔ Groq LLM** is working.
+3. Responses are generated dynamically by your LLM backend.
+
+---
+
+## 💡 Example Questions
+
+```
+- Explain process scheduling algorithms in OS.
+- Difference between deep learning and ML?
+- How does a database transaction work?
+- What is Big O notation?
+- How to debug Python code efficiently?
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer       | Technology                      |
+| ----------- | ------------------------------- |
+| LLM Backend | Groq API                        |
+| Framework   | LangChain + FastAPI             |
+| Frontend    | React                           |
+| Language    | Python 3.10 + JavaScript        |
+| Optional    | FAISS / Chroma (context memory) |
+
+---
+
+## 👨‍💻 Developer
+
+**Tawfica Bhuiyan** – AI/ML & LLM Enthusiast | Software Engineer in Progress
+📧 [bhuiyantawfica@gmail.com](mailto:bhuiyantawfica@gmail.com)
+🌐 [GitHub](https://github.com/TawficaBhuiyan)
+
+---
+
+## ⭐ Support
+
+If you find this project useful, **⭐ Star it on GitHub** and share with your friends 🚀
